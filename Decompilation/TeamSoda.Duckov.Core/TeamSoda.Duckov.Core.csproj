@@ -1,0 +1,1236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{641BBC0F-4993-4BF9-AB36-63A619734585}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TeamSoda.Duckov.Core</RootNamespace>
+    <AssemblyName>TeamSoda.Duckov.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ALINE">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\ALINE.dll</HintPath>
+    </Reference>
+    <Reference Include="AstarPathfindingProject">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\AstarPathfindingProject.dll</HintPath>
+    </Reference>
+    <Reference Include="Bilibili.BDS">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Bilibili.BDS.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.rlabrecque.steamworks.net">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\com.rlabrecque.steamworks.net.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween.Modules">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\DOTween.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="EasySave3">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\EasySave3.dll</HintPath>
+    </Reference>
+    <Reference Include="ECM2">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\ECM2.dll</HintPath>
+    </Reference>
+    <Reference Include="Eflatun.SceneReference">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Eflatun.SceneReference.dll</HintPath>
+    </Reference>
+    <Reference Include="EPO">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\EPO.dll</HintPath>
+    </Reference>
+    <Reference Include="FMODUnity">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\FMODUnity.dll</HintPath>
+    </Reference>
+    <Reference Include="FOW">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\FOW.dll</HintPath>
+    </Reference>
+    <Reference Include="HBAO.Universal.Runtime">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\HBAO.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="LeTai.TrueShadow">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\LeTai.TrueShadow.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniExcel">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\MiniExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="NodeCanvas">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\NodeCanvas.dll</HintPath>
+    </Reference>
+    <Reference Include="ParadoxNotion">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\ParadoxNotion.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugins">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Plugins.dll</HintPath>
+    </Reference>
+    <Reference Include="ShapesRuntime">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\ShapesRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Sirenix.OdinInspector.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Sirenix.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="SodaLocalization">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\SodaLocalization.dll</HintPath>
+    </Reference>
+    <Reference Include="SymmetryBreak.TastyGrassShader">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\SymmetryBreak.TastyGrassShader.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UISplineRenderer">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UISplineRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UniTask.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.DOTween">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UniTask.DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Unity.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Splines">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Unity.Splines.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessoryBase.cs" />
+    <Compile Include="Accessory_Lazer.cs" />
+    <Compile Include="ActionProgressHUD.cs" />
+    <Compile Include="Action_Fishing.cs" />
+    <Compile Include="Action_FishingV2.cs" />
+    <Compile Include="AddBuffAction.cs" />
+    <Compile Include="AddToWishListButton.cs" />
+    <Compile Include="ADSAimMarker.cs" />
+    <Compile Include="AICharacterController.cs" />
+    <Compile Include="AIMainBrain.cs" />
+    <Compile Include="AimMarker.cs" />
+    <Compile Include="AimTargetFinder.cs" />
+    <Compile Include="AimTypes.cs" />
+    <Compile Include="AISound.cs" />
+    <Compile Include="AISpecialAttachmentBase.cs" />
+    <Compile Include="AISpecialAttachment_Shop.cs" />
+    <Compile Include="AISpecialAttachment_SpawnItemOnCritKill.cs" />
+    <Compile Include="AI_PathControl.cs" />
+    <Compile Include="ATMPanel.cs" />
+    <Compile Include="ATMPanel_DrawPanel.cs" />
+    <Compile Include="ATMPanel_SavePanel.cs" />
+    <Compile Include="ATMView.cs" />
+    <Compile Include="AT_InteractWithMainCharacter.cs" />
+    <Compile Include="AT_SetBlackScreen.cs" />
+    <Compile Include="AT_SetVirtualCamera.cs" />
+    <Compile Include="AudioEventProxy.cs" />
+    <Compile Include="BaseBGMSelector.cs" />
+    <Compile Include="BaseSceneUtilities.cs" />
+    <Compile Include="BezierSpline.cs" />
+    <Compile Include="BitcoinMinerView.cs" />
+    <Compile Include="BlueNoiseSetter.cs" />
+    <Compile Include="BoundaryGenerator.cs" />
+    <Compile Include="BowAnimation.cs" />
+    <Compile Include="Breakable.cs" />
+    <Compile Include="BuffVFX.cs" />
+    <Compile Include="BuilderViewInvoker.cs" />
+    <Compile Include="BulletCountHUD.cs" />
+    <Compile Include="BulletPool.cs" />
+    <Compile Include="BulletTypeDisplay.cs" />
+    <Compile Include="BulletTypeHUD.cs" />
+    <Compile Include="BulletTypeInfo.cs" />
+    <Compile Include="BulletTypeSelectButton.cs" />
+    <Compile Include="BunkerDoorVisual.cs" />
+    <Compile Include="Button_LoadMainMenu.cs" />
+    <Compile Include="Button_QuitGame.cs" />
+    <Compile Include="Calibers.cs" />
+    <Compile Include="CameraArm.cs" />
+    <Compile Include="CameraMode.cs" />
+    <Compile Include="CameraModeController.cs" />
+    <Compile Include="CameraShaker.cs" />
+    <Compile Include="CameraSystems\CameraPropertiesControl.cs" />
+    <Compile Include="CanvasScalerController.cs" />
+    <Compile Include="Carriable.cs" />
+    <Compile Include="CA_Attack.cs" />
+    <Compile Include="CA_Carry.cs" />
+    <Compile Include="CA_Dash.cs" />
+    <Compile Include="CA_Interact.cs" />
+    <Compile Include="CA_Reload.cs" />
+    <Compile Include="CA_Skill.cs" />
+    <Compile Include="CA_UseItem.cs" />
+    <Compile Include="CharacterActionBase.cs" />
+    <Compile Include="CharacterAnimationControl.cs" />
+    <Compile Include="CharacterAnimationControl_MagicBlend.cs" />
+    <Compile Include="CharacterCreator.cs" />
+    <Compile Include="CharacterEquipmentController.cs" />
+    <Compile Include="CharacterIconTypes.cs" />
+    <Compile Include="CharacterInputControl.cs" />
+    <Compile Include="CharacterIsRunning.cs" />
+    <Compile Include="CharacterItemControl.cs" />
+    <Compile Include="CharacterMainControl.cs" />
+    <Compile Include="CharacterMainControlExtensions.cs" />
+    <Compile Include="CharacterModel.cs" />
+    <Compile Include="CharacterPosInShader.cs" />
+    <Compile Include="CharacterRandomPreset.cs" />
+    <Compile Include="CharacterRandomPresetInfo.cs" />
+    <Compile Include="CharacterSceneControl.cs" />
+    <Compile Include="CharacterSkillKeeper.cs" />
+    <Compile Include="CharacterSoundMaker.cs" />
+    <Compile Include="CharacterSpawnerBase.cs" />
+    <Compile Include="CharacterSpawnerComponentBase.cs" />
+    <Compile Include="CharacterSpawnerGroup.cs" />
+    <Compile Include="CharacterSpawnerGroupSelector.cs" />
+    <Compile Include="CharacterSpawnerRoot.cs" />
+    <Compile Include="CharacterSubVisuals.cs" />
+    <Compile Include="CharacterTouchInputControl.cs" />
+    <Compile Include="CheatingManager.cs" />
+    <Compile Include="CircularExtrudeShape.cs" />
+    <Compile Include="ColorExtensions.cs" />
+    <Compile Include="ColorPunch.cs" />
+    <Compile Include="Condition_CharacterLevel.cs" />
+    <Compile Include="Condition_HasBeenToScene.cs" />
+    <Compile Include="Condition_RaidDead.cs" />
+    <Compile Include="Condition_TimeOfDay.cs" />
+    <Compile Include="Condition_XiaoHeiZi.cs" />
+    <Compile Include="Conditon_BuildingConstructed.cs" />
+    <Compile Include="ConfirmDialogue.cs" />
+    <Compile Include="ConstructionSite.cs" />
+    <Compile Include="CopyTextOnClick.cs" />
+    <Compile Include="CostDisplay.cs" />
+    <Compile Include="CostStaminaAction.cs" />
+    <Compile Include="CostTaker.cs" />
+    <Compile Include="CostTakerHUD.cs" />
+    <Compile Include="CostTakerHUD_Entry.cs" />
+    <Compile Include="CountDownArea.cs" />
+    <Compile Include="CraftingFormula.cs" />
+    <Compile Include="CraftingFormulaCollection.cs" />
+    <Compile Include="CraftingManager.cs" />
+    <Compile Include="CraftView.cs" />
+    <Compile Include="CraftViewFilterBtnEntry.cs" />
+    <Compile Include="CraftView_ListEntry.cs" />
+    <Compile Include="CustomFaceData.cs" />
+    <Compile Include="CustomFaceHeadSetting.cs" />
+    <Compile Include="CustomFaceInstance.cs" />
+    <Compile Include="CustomFaceLoadSaveButton.cs" />
+    <Compile Include="CustomFaceManager.cs" />
+    <Compile Include="CustomFacePart.cs" />
+    <Compile Include="CustomFacePartCollection.cs" />
+    <Compile Include="CustomFacePartInfo.cs" />
+    <Compile Include="CustomFacePartMeta.cs" />
+    <Compile Include="CustomFacePartTypes.cs" />
+    <Compile Include="CustomFacePartUtility.cs" />
+    <Compile Include="CustomFacePreset.cs" />
+    <Compile Include="CustomFaceSaveLoad.cs" />
+    <Compile Include="CustomFaceSettingData.cs" />
+    <Compile Include="CustomFaceSlider.cs" />
+    <Compile Include="CustomFaceTabs.cs" />
+    <Compile Include="CustomFaceUI.cs" />
+    <Compile Include="CustomFaceUIColorPicker.cs" />
+    <Compile Include="CustomFaceUIColorPickerButton.cs" />
+    <Compile Include="CustomFaceUIPart.cs" />
+    <Compile Include="CustomFaceUISwitch.cs" />
+    <Compile Include="CutScene.cs" />
+    <Compile Include="DamageInfo.cs" />
+    <Compile Include="DamageReceiver.cs" />
+    <Compile Include="DamageToSelf.cs" />
+    <Compile Include="DamageTypes.cs" />
+    <Compile Include="DarkRoomFade.cs" />
+    <Compile Include="DateTimeAttribute.cs" />
+    <Compile Include="Debugging\InstantiateTiming.cs" />
+    <Compile Include="Debugging\InventorySaveLoad.cs" />
+    <Compile Include="DebugUISetup.cs" />
+    <Compile Include="DecalAtlasSelector.cs" />
+    <Compile Include="DecomposeDatabase.cs" />
+    <Compile Include="DecomposeFormula.cs" />
+    <Compile Include="DecomposeSlider.cs" />
+    <Compile Include="DeleteSaveDataButton.cs" />
+    <Compile Include="DestroyOvertime.cs" />
+    <Compile Include="DevCam.cs" />
+    <Compile Include="DialogueBubbleProxy.cs" />
+    <Compile Include="Dialogues\DialogueUI.cs" />
+    <Compile Include="Dialogues\DialogueUIChoice.cs" />
+    <Compile Include="Dialogues\LocalizedStatement.cs" />
+    <Compile Include="Dialogues\LocalizedStatementNode.cs" />
+    <Compile Include="Dialogues\LocalizedStatementSequence.cs" />
+    <Compile Include="DigitInputPanel.cs" />
+    <Compile Include="DisableCameraOffset.cs" />
+    <Compile Include="Door.cs" />
+    <Compile Include="DoorTrigger.cs" />
+    <Compile Include="DPSDisplayer.cs" />
+    <Compile Include="DragHandler.cs" />
+    <Compile Include="DuckovDialogueActor.cs" />
+    <Compile Include="DuckovHider.cs" />
+    <Compile Include="DuckovItemAgent.cs" />
+    <Compile Include="DuckovResolution.cs" />
+    <Compile Include="DuckovScreenCapturer.cs" />
+    <Compile Include="Duckov\Achievements\AchievementDatabase.cs" />
+    <Compile Include="Duckov\Achievements\AchievementManager.cs" />
+    <Compile Include="Duckov\Achievements\StatisticsManager.cs" />
+    <Compile Include="Duckov\Aquariums\Aquarium.cs" />
+    <Compile Include="Duckov\Aquariums\IAquariumContent.cs" />
+    <Compile Include="Duckov\AudioManager.cs" />
+    <Compile Include="Duckov\AudioObject.cs" />
+    <Compile Include="Duckov\BasketBalls\Basket.cs" />
+    <Compile Include="Duckov\BasketBalls\BasketBall.cs" />
+    <Compile Include="Duckov\BasketBalls\BasketTrigger.cs" />
+    <Compile Include="Duckov\Bitcoins\BitcoinMiner.cs" />
+    <Compile Include="Duckov\BlackMarkets\BlackMarket.cs" />
+    <Compile Include="Duckov\BlackMarkets\UI\BlackMarketView.cs" />
+    <Compile Include="Duckov\BlackMarkets\UI\DemandPanel.cs" />
+    <Compile Include="Duckov\BlackMarkets\UI\DemandPanel_Entry.cs" />
+    <Compile Include="Duckov\BlackMarkets\UI\SupplyPanel.cs" />
+    <Compile Include="Duckov\BlackMarkets\UI\SupplyPanel_Entry.cs" />
+    <Compile Include="Duckov\Buffs\Buff.cs" />
+    <Compile Include="Duckov\Buffs\CharacterBuffManager.cs" />
+    <Compile Include="Duckov\Buildings\Building.cs" />
+    <Compile Include="Duckov\Buildings\BuildingArea.cs" />
+    <Compile Include="Duckov\Buildings\BuildingBuyAndPlaceResults.cs" />
+    <Compile Include="Duckov\Buildings\BuildingDataCollection.cs" />
+    <Compile Include="Duckov\Buildings\BuildingEffect.cs" />
+    <Compile Include="Duckov\Buildings\BuildingInfo.cs" />
+    <Compile Include="Duckov\Buildings\BuildingManager.cs" />
+    <Compile Include="Duckov\Buildings\BuildingRotation.cs" />
+    <Compile Include="Duckov\Buildings\UI\BuilderView.cs" />
+    <Compile Include="Duckov\Buildings\UI\BuildingBtnEntry.cs" />
+    <Compile Include="Duckov\Buildings\UI\BuildingContextMenu.cs" />
+    <Compile Include="Duckov\Buildings\UI\BuildingContextMenuEntry.cs" />
+    <Compile Include="Duckov\Buildings\UI\BuildingSelectionPanel.cs" />
+    <Compile Include="Duckov\Buildings\UI\GridDisplay.cs" />
+    <Compile Include="Duckov\CheatMode.cs" />
+    <Compile Include="Duckov\CreditsUtility\CreditsDisplay.cs" />
+    <Compile Include="Duckov\CreditsUtility\CreditsLexer.cs" />
+    <Compile Include="Duckov\CreditsUtility\EmptyEntry.cs" />
+    <Compile Include="Duckov\CreditsUtility\HorizontalEntry.cs" />
+    <Compile Include="Duckov\CreditsUtility\ImageEntry.cs" />
+    <Compile Include="Duckov\CreditsUtility\TextEntry.cs" />
+    <Compile Include="Duckov\CreditsUtility\Token.cs" />
+    <Compile Include="Duckov\CreditsUtility\TokenType.cs" />
+    <Compile Include="Duckov\CreditsUtility\VerticalEntry.cs" />
+    <Compile Include="Duckov\Crops\CellDisplay.cs" />
+    <Compile Include="Duckov\Crops\Crop.cs" />
+    <Compile Include="Duckov\Crops\CropAnimator.cs" />
+    <Compile Include="Duckov\Crops\CropData.cs" />
+    <Compile Include="Duckov\Crops\CropDatabase.cs" />
+    <Compile Include="Duckov\Crops\CropInfo.cs" />
+    <Compile Include="Duckov\Crops\Garden.cs" />
+    <Compile Include="Duckov\Crops\IGardenAutoWaterProvider.cs" />
+    <Compile Include="Duckov\Crops\IGardenSizeAdder.cs" />
+    <Compile Include="Duckov\Crops\ProductRanking.cs" />
+    <Compile Include="Duckov\Crops\SeedInfo.cs" />
+    <Compile Include="Duckov\Crops\UI\CellContextDisplay.cs" />
+    <Compile Include="Duckov\Crops\UI\GardenView.cs" />
+    <Compile Include="Duckov\Crops\UI\GardenViewCropSelector.cs" />
+    <Compile Include="Duckov\Crops\UI\GardenViewToolButton.cs" />
+    <Compile Include="Duckov\CursorData.cs" />
+    <Compile Include="Duckov\CursorManager.cs" />
+    <Compile Include="Duckov\CustomerService\QuestionairButton.cs" />
+    <Compile Include="Duckov\DeadBodyManager.cs" />
+    <Compile Include="Duckov\DeathLotteries\CardDisplay.cs" />
+    <Compile Include="Duckov\DeathLotteries\DeathLottery.cs" />
+    <Compile Include="Duckov\DeathLotteries\DeathLotteryCard.cs" />
+    <Compile Include="Duckov\DeathLotteries\DeathLotteryInteractable.cs" />
+    <Compile Include="Duckov\DeathLotteries\DeathLotteryVIew.cs" />
+    <Compile Include="Duckov\Economy\Cost.cs" />
+    <Compile Include="Duckov\Economy\EconomyManager.cs" />
+    <Compile Include="Duckov\Economy\StockShop.cs" />
+    <Compile Include="Duckov\Economy\UI\StockShopItemEntry.cs" />
+    <Compile Include="Duckov\Economy\UI\StockShopView.cs" />
+    <Compile Include="Duckov\Effects\DamageAction.cs" />
+    <Compile Include="Duckov\Endowment\EndowmentEntry.cs" />
+    <Compile Include="Duckov\Endowment\EndowmentIndex.cs" />
+    <Compile Include="Duckov\Endowment\EndowmentManager.cs" />
+    <Compile Include="Duckov\Endowment\UI\EndowmentDisplay.cs" />
+    <Compile Include="Duckov\Endowment\UI\EndowmentSelectionEntry.cs" />
+    <Compile Include="Duckov\Endowment\UI\EndowmentSelectionPanel.cs" />
+    <Compile Include="Duckov\EXPManager.cs" />
+    <Compile Include="Duckov\GameMetaData.cs" />
+    <Compile Include="Duckov\GameVersionData.cs" />
+    <Compile Include="Duckov\GameVersionDisplay.cs" />
+    <Compile Include="Duckov\ICursorDataProvider.cs" />
+    <Compile Include="Duckov\IProgress.cs" />
+    <Compile Include="Duckov\ItemShortcut.cs" />
+    <Compile Include="Duckov\ItemUnlockNotification.cs" />
+    <Compile Include="Duckov\ItemUsage\AddBuff.cs" />
+    <Compile Include="Duckov\ItemUsage\DeadByChance.cs" />
+    <Compile Include="Duckov\ItemUsage\Drug.cs" />
+    <Compile Include="Duckov\ItemUsage\FoodDrink.cs" />
+    <Compile Include="Duckov\ItemUsage\RemoveBuff.cs" />
+    <Compile Include="Duckov\ItemUsage\SpawnEgg.cs" />
+    <Compile Include="Duckov\MasterKeys\MasterKeyRegisterViewInvoker.cs" />
+    <Compile Include="Duckov\MasterKeys\MasterKeysManager.cs" />
+    <Compile Include="Duckov\MasterKeys\UI\MasterKeysIndexEntry.cs" />
+    <Compile Include="Duckov\MasterKeys\UI\MasterKeysIndexInspector.cs" />
+    <Compile Include="Duckov\MasterKeys\UI\MasterKeysIndexList.cs" />
+    <Compile Include="Duckov\MasterKeys\UI\MasterKeysRegisterView.cs" />
+    <Compile Include="Duckov\MasterKeys\UI\MasterKeysView.cs" />
+    <Compile Include="Duckov\MiniGames\BubblePoppers\Bubble.cs" />
+    <Compile Include="Duckov\MiniGames\BubblePoppers\BubblePopper.cs" />
+    <Compile Include="Duckov\MiniGames\BubblePoppers\BubblePopperLayout.cs" />
+    <Compile Include="Duckov\MiniGames\BubblePoppers\BubblePopperLevelDataProvider.cs" />
+    <Compile Include="Duckov\MiniGames\Debugging\HideAndLockCursor.cs" />
+    <Compile Include="Duckov\MiniGames\Examples\FPS\FPSCharacter.cs" />
+    <Compile Include="Duckov\MiniGames\Examples\FPS\FPSDamageInfo.cs" />
+    <Compile Include="Duckov\MiniGames\Examples\FPS\FPSDamageReceiver.cs" />
+    <Compile Include="Duckov\MiniGames\Examples\FPS\FPSGun.cs" />
+    <Compile Include="Duckov\MiniGames\Examples\FPS\FPSGunControl.cs" />
+    <Compile Include="Duckov\MiniGames\Examples\FPS\FPSHealth.cs" />
+    <Compile Include="Duckov\MiniGames\Examples\FPS\FPSMovement.cs" />
+    <Compile Include="Duckov\MiniGames\Examples\FPS\FPS_Enemy_HomingFly.cs" />
+    <Compile Include="Duckov\MiniGames\Examples\FPS\UICrossHair.cs" />
+    <Compile Include="Duckov\MiniGames\Examples\HelloWorld\FakeMouse.cs" />
+    <Compile Include="Duckov\MiniGames\Examples\HelloWorld\Move.cs" />
+    <Compile Include="Duckov\MiniGames\GamingConsole.cs" />
+    <Compile Include="Duckov\MiniGames\GamingConsoleAnimator.cs" />
+    <Compile Include="Duckov\MiniGames\GamingConsoleHUD.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\AddBombOnRetrieve.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\AddEagleEyePotionOnRetrieve.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\AddStrengthPotionOnRetrieve.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_001.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_002.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_003.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_004.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_005.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_006.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_007.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_008.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_009.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_010.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_011.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_012.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_013.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_014.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_015.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_016.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_017.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_018.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_019.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_020.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_021.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_022.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_023.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_024.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_025.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_026.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_027.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_028.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_029.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_030.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_031.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Artifacts\GMA_032.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Bomb.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\BombDisplay.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\EagleEyePotionDisplay.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\ExplodeOnAttach.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMiner.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMinerArtifact.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMinerArtifactBehaviour.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMinerEntity.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMinerMoneyDisplay.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMinerRunData.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMinerShop.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMinerShopUI.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMinerShopUIContinueBtn.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMinerShopUIEntry.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMinerShopUIRefreshBtn.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMiner_PopText.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMiner_PopTextEntry.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\GoldMiner_ShopItem.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\Hook.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\HookHead.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\LevelSettlementUI.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\NavGroup.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\NavGroupLinearController.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\PassivePropDisplay.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\PassivePropsUI.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\PigBehaviour.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\ScoreDisplay.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\ShopEntity.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\StaminaDisplay.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\StrengthPotionDisplay.cs" />
+    <Compile Include="Duckov\MiniGames\GoldMiner\UI\NavEntry.cs" />
+    <Compile Include="Duckov\MiniGames\MiniGame.cs" />
+    <Compile Include="Duckov\MiniGames\MiniGameBehaviour.cs" />
+    <Compile Include="Duckov\MiniGames\MiniGameInputHandler.cs" />
+    <Compile Include="Duckov\MiniGames\SnakeForces\SnakeDisplay.cs" />
+    <Compile Include="Duckov\MiniGames\SnakeForces\SnakeForce.cs" />
+    <Compile Include="Duckov\MiniGames\SnakeForces\SnakePartDisplay.cs" />
+    <Compile Include="Duckov\MiniGames\Utilities\ControllerAnimator.cs" />
+    <Compile Include="Duckov\MiniGames\Utilities\ControllerPickupAnimation.cs" />
+    <Compile Include="Duckov\MiniGames\Utilities\GamingConsoleGraphics.cs" />
+    <Compile Include="Duckov\MiniGames\VirtualCursor.cs" />
+    <Compile Include="Duckov\MiniGames\VirtualCursorTarget.cs" />
+    <Compile Include="Duckov\MiniMaps\Editor\MiniMapShooter.cs" />
+    <Compile Include="Duckov\MiniMaps\IPointOfInterest.cs" />
+    <Compile Include="Duckov\MiniMaps\MapMarkerManager.cs" />
+    <Compile Include="Duckov\MiniMaps\MapMarkerPOI.cs" />
+    <Compile Include="Duckov\MiniMaps\MiniMapCenter.cs" />
+    <Compile Include="Duckov\MiniMaps\MiniMapCompass.cs" />
+    <Compile Include="Duckov\MiniMaps\MiniMapSettings.cs" />
+    <Compile Include="Duckov\MiniMaps\PointsOfInterests.cs" />
+    <Compile Include="Duckov\MiniMaps\SimplePointOfInterest.cs" />
+    <Compile Include="Duckov\MiniMaps\UI\MiniMapDisplay.cs" />
+    <Compile Include="Duckov\MiniMaps\UI\MiniMapDisplayEntry.cs" />
+    <Compile Include="Duckov\MiniMaps\UI\MiniMapView.cs" />
+    <Compile Include="Duckov\MiniMaps\UI\PointOfInterestEntry.cs" />
+    <Compile Include="Duckov\Modding\ModBehaviour.cs" />
+    <Compile Include="Duckov\Modding\ModInfo.cs" />
+    <Compile Include="Duckov\Modding\ModManager.cs" />
+    <Compile Include="Duckov\Modding\SteamWorkshopManager.cs" />
+    <Compile Include="Duckov\Modding\UI\ModEntry.cs" />
+    <Compile Include="Duckov\Modding\UI\ModManagerUI.cs" />
+    <Compile Include="Duckov\NoteIndexs\Note.cs" />
+    <Compile Include="Duckov\NoteIndexs\NoteIndex.cs" />
+    <Compile Include="Duckov\NoteIndexs\NoteIndexProxy.cs" />
+    <Compile Include="Duckov\NoteIndexs\NoteInteract.cs" />
+    <Compile Include="Duckov\NoteIndexs\NoteStatus.cs" />
+    <Compile Include="Duckov\NoteIndexs\RequireNoteIndexUnlocked.cs" />
+    <Compile Include="Duckov\Options\OptionsManager.cs" />
+    <Compile Include="Duckov\Options\UI\OptionsPanel.cs" />
+    <Compile Include="Duckov\Options\UI\OptionsUIEntry_Dropdown.cs" />
+    <Compile Include="Duckov\Options\UI\OptionsUIEntry_Slider.cs" />
+    <Compile Include="Duckov\Options\UI\OptionsUIEntry_Toggle.cs" />
+    <Compile Include="Duckov\Options\UI\RuleEntry_Float.cs" />
+    <Compile Include="Duckov\Options\UI\RuleEntry_Int.cs" />
+    <Compile Include="Duckov\PerkTrees\AddGardenSize.cs" />
+    <Compile Include="Duckov\PerkTrees\AddPlayerStorage.cs" />
+    <Compile Include="Duckov\PerkTrees\Behaviours\AddBlackMarketRefreshChance.cs" />
+    <Compile Include="Duckov\PerkTrees\Behaviours\ChangeBlackMarketRefreshTimeFactor.cs" />
+    <Compile Include="Duckov\PerkTrees\Behaviours\ModifyCharacterStatsBase.cs" />
+    <Compile Include="Duckov\PerkTrees\Behaviours\UnlockAchievement.cs" />
+    <Compile Include="Duckov\PerkTrees\Behaviours\UnlockFormula.cs" />
+    <Compile Include="Duckov\PerkTrees\GardenAutoWater.cs" />
+    <Compile Include="Duckov\PerkTrees\Interactable\PerkTreeUIInvoker.cs" />
+    <Compile Include="Duckov\PerkTrees\Perk.cs" />
+    <Compile Include="Duckov\PerkTrees\PerkBehaviour.cs" />
+    <Compile Include="Duckov\PerkTrees\PerkLevelLineNode.cs" />
+    <Compile Include="Duckov\PerkTrees\PerkRelationConnection.cs" />
+    <Compile Include="Duckov\PerkTrees\PerkRelationGraph.cs" />
+    <Compile Include="Duckov\PerkTrees\PerkRelationNode.cs" />
+    <Compile Include="Duckov\PerkTrees\PerkRelationNodeBase.cs" />
+    <Compile Include="Duckov\PerkTrees\PerkRequirement.cs" />
+    <Compile Include="Duckov\PerkTrees\PerkTree.cs" />
+    <Compile Include="Duckov\PerkTrees\PerkTreeRelationGraphOwner.cs" />
+    <Compile Include="Duckov\Platform.cs" />
+    <Compile Include="Duckov\PlatformInfo.cs" />
+    <Compile Include="Duckov\Progress.cs" />
+    <Compile Include="Duckov\Quests\Condition.cs" />
+    <Compile Include="Duckov\Quests\ConditionExtensions.cs" />
+    <Compile Include="Duckov\Quests\Conditions\RequireDemo.cs" />
+    <Compile Include="Duckov\Quests\Conditions\RequireFormulaUnlocked.cs" />
+    <Compile Include="Duckov\Quests\Conditions\RequireGameobjectsActived.cs" />
+    <Compile Include="Duckov\Quests\Conditions\RequireHasFished.cs" />
+    <Compile Include="Duckov\Quests\Conditions\RequirePerkUnlocked.cs" />
+    <Compile Include="Duckov\Quests\Conditions\RequireQuestsActive.cs" />
+    <Compile Include="Duckov\Quests\Conditions\RequireQuestsFinished.cs" />
+    <Compile Include="Duckov\Quests\MapElementForTask.cs" />
+    <Compile Include="Duckov\Quests\PlayDialogueGraphOnQuestActive.cs" />
+    <Compile Include="Duckov\Quests\Quest.cs" />
+    <Compile Include="Duckov\Quests\QuestCollection.cs" />
+    <Compile Include="Duckov\Quests\QuestGiver.cs" />
+    <Compile Include="Duckov\Quests\QuestGiverID.cs" />
+    <Compile Include="Duckov\Quests\QuestManager.cs" />
+    <Compile Include="Duckov\Quests\QuestTask_BubblePopper_Level.cs" />
+    <Compile Include="Duckov\Quests\QuestTask_GoldMiner_Level.cs" />
+    <Compile Include="Duckov\Quests\QuestTask_Snake_Score.cs" />
+    <Compile Include="Duckov\Quests\QuestTask_UnlockBeacon.cs" />
+    <Compile Include="Duckov\Quests\Relations\QuestRelationConnection.cs" />
+    <Compile Include="Duckov\Quests\Relations\QuestRelationGraph.cs" />
+    <Compile Include="Duckov\Quests\Relations\QuestRelationNode.cs" />
+    <Compile Include="Duckov\Quests\Relations\QuestRelationNodeBase.cs" />
+    <Compile Include="Duckov\Quests\Relations\QuestRelationProxyNode.cs" />
+    <Compile Include="Duckov\Quests\Reward.cs" />
+    <Compile Include="Duckov\Quests\RewardItem.cs" />
+    <Compile Include="Duckov\Quests\Rewards\QuestReward_EXP.cs" />
+    <Compile Include="Duckov\Quests\Rewards\QuestReward_Money.cs" />
+    <Compile Include="Duckov\Quests\Rewards\QuestReward_UnlockStockItem.cs" />
+    <Compile Include="Duckov\Quests\ShowDialogueOnQuestActivate.cs" />
+    <Compile Include="Duckov\Quests\SpawnItemForTask.cs" />
+    <Compile Include="Duckov\Quests\SpawnPrefabForTask.cs" />
+    <Compile Include="Duckov\Quests\Task.cs" />
+    <Compile Include="Duckov\Quests\Tasks\QuestTask_CheckSaveData.cs" />
+    <Compile Include="Duckov\Quests\Tasks\QuestTask_ConstructBuilding.cs" />
+    <Compile Include="Duckov\Quests\Tasks\QuestTask_Evacuate.cs" />
+    <Compile Include="Duckov\Quests\Tasks\QuestTask_KillCount.cs" />
+    <Compile Include="Duckov\Quests\Tasks\QuestTask_ReachLocation.cs" />
+    <Compile Include="Duckov\Quests\Tasks\QuestTask_SubmitMoney.cs" />
+    <Compile Include="Duckov\Quests\Tasks\QuestTask_TaskEvent.cs" />
+    <Compile Include="Duckov\Quests\Tasks\QuestTask_UnlockPerk.cs" />
+    <Compile Include="Duckov\Quests\Tasks\QuestTask_UseItem.cs" />
+    <Compile Include="Duckov\Quests\Tasks\SubmitItems.cs" />
+    <Compile Include="Duckov\Quests\UI\QuestCompletePanel.cs" />
+    <Compile Include="Duckov\Quests\UI\QuestEntry.cs" />
+    <Compile Include="Duckov\Quests\UI\QuestGiverTabButton.cs" />
+    <Compile Include="Duckov\Quests\UI\QuestGiverTabs.cs" />
+    <Compile Include="Duckov\Quests\UI\QuestGiverView.cs" />
+    <Compile Include="Duckov\Quests\UI\QuestStatus.cs" />
+    <Compile Include="Duckov\Quests\UI\QuestView.cs" />
+    <Compile Include="Duckov\Quests\UI\QuestViewDetails.cs" />
+    <Compile Include="Duckov\Quests\UI\QuestViewFlagButton.cs" />
+    <Compile Include="Duckov\Quests\UI\RewardEntry.cs" />
+    <Compile Include="Duckov\Quests\UI\TaskEntry.cs" />
+    <Compile Include="Duckov\RichPresenceManager.cs" />
+    <Compile Include="Duckov\Rules\GameRulesManager.cs" />
+    <Compile Include="Duckov\Rules\RuleIndex.cs" />
+    <Compile Include="Duckov\Rules\Ruleset.cs" />
+    <Compile Include="Duckov\Rules\RulesetFile.cs" />
+    <Compile Include="Duckov\Rules\UI\DifficultySelection.cs" />
+    <Compile Include="Duckov\Rules\UI\DifficultySelection_Entry.cs" />
+    <Compile Include="Duckov\Scenes\MultiSceneCore.cs" />
+    <Compile Include="Duckov\Scenes\MultiSceneLocation.cs" />
+    <Compile Include="Duckov\Scenes\MultiSceneTeleporter.cs" />
+    <Compile Include="Duckov\Scenes\SceneIDAttribute.cs" />
+    <Compile Include="Duckov\Scenes\SceneLocationsProvider.cs" />
+    <Compile Include="Duckov\Scenes\SubSceneEntry.cs" />
+    <Compile Include="Duckov\SocialManager.cs" />
+    <Compile Include="Duckov\Sounds\SoundDisplay.cs" />
+    <Compile Include="Duckov\Sounds\SoundVisualization.cs" />
+    <Compile Include="Duckov\Splines\Bevel.cs" />
+    <Compile Include="Duckov\Splines\BeveledLineShape.cs" />
+    <Compile Include="Duckov\StrongNotification.cs" />
+    <Compile Include="Duckov\StrongNotificationContent.cs" />
+    <Compile Include="Duckov\Tasks\Credits.cs" />
+    <Compile Include="Duckov\Tasks\EndingFlow.cs" />
+    <Compile Include="Duckov\Tasks\ITaskBehaviour.cs" />
+    <Compile Include="Duckov\Tasks\ParallelTask.cs" />
+    <Compile Include="Duckov\Tasks\PlayTimelineTask.cs" />
+    <Compile Include="Duckov\Tasks\Startup.cs" />
+    <Compile Include="Duckov\Tasks\TaskList.cs" />
+    <Compile Include="Duckov\Tips\TipEntry.cs" />
+    <Compile Include="Duckov\Tips\TipsDisplay.cs" />
+    <Compile Include="Duckov\UI\Animations\AnchoredPositionLooper.cs" />
+    <Compile Include="Duckov\UI\Animations\ButtonAnimation.cs" />
+    <Compile Include="Duckov\UI\Animations\CanvasGroupFade.cs" />
+    <Compile Include="Duckov\UI\Animations\ChangeGraphicsColorToggle.cs" />
+    <Compile Include="Duckov\UI\Animations\FadeElement.cs" />
+    <Compile Include="Duckov\UI\Animations\FadeGroup.cs" />
+    <Compile Include="Duckov\UI\Animations\ImageColorLooper.cs" />
+    <Compile Include="Duckov\UI\Animations\LocalPositionLooper.cs" />
+    <Compile Include="Duckov\UI\Animations\LooperClock.cs" />
+    <Compile Include="Duckov\UI\Animations\LooperElement.cs" />
+    <Compile Include="Duckov\UI\Animations\MaterialPropertyFade.cs" />
+    <Compile Include="Duckov\UI\Animations\RectTransformFade.cs" />
+    <Compile Include="Duckov\UI\Animations\Revolver.cs" />
+    <Compile Include="Duckov\UI\Animations\RotationLooper.cs" />
+    <Compile Include="Duckov\UI\Animations\ScaleFade.cs" />
+    <Compile Include="Duckov\UI\Animations\ScaleLooper.cs" />
+    <Compile Include="Duckov\UI\Animations\ScaleToggle.cs" />
+    <Compile Include="Duckov\UI\Animations\SizeDeltaToggle.cs" />
+    <Compile Include="Duckov\UI\Animations\ToggleAnimation.cs" />
+    <Compile Include="Duckov\UI\Animations\ToggleComponent.cs" />
+    <Compile Include="Duckov\UI\BarDisplay.cs" />
+    <Compile Include="Duckov\UI\BarDisplays\BarDisplayController.cs" />
+    <Compile Include="Duckov\UI\BarDisplays\BarDisplayController_HP.cs" />
+    <Compile Include="Duckov\UI\BarDisplays\BarDisplayController_Hunger.cs" />
+    <Compile Include="Duckov\UI\BarDisplays\BarDisplayController_Stemina.cs" />
+    <Compile Include="Duckov\UI\BarDisplays\BarDisplayController_Thurst.cs" />
+    <Compile Include="Duckov\UI\BlackScreen.cs" />
+    <Compile Include="Duckov\UI\BuffDetailsOverlay.cs" />
+    <Compile Include="Duckov\UI\BuffsDisplay.cs" />
+    <Compile Include="Duckov\UI\BuffsDisplayEntry.cs" />
+    <Compile Include="Duckov\UI\CloseViewOnPointerClick.cs" />
+    <Compile Include="Duckov\UI\ClosureView.cs" />
+    <Compile Include="Duckov\UI\DebugKontextMenuInvoker.cs" />
+    <Compile Include="Duckov\UI\DialogueBubbles\DialogueBubble.cs" />
+    <Compile Include="Duckov\UI\DialogueBubbles\DialogueBubblesManager.cs" />
+    <Compile Include="Duckov\UI\DialogueCanvas.cs" />
+    <Compile Include="Duckov\UI\FollowCursor.cs" />
+    <Compile Include="Duckov\UI\FormulasIndexEntry.cs" />
+    <Compile Include="Duckov\UI\FormulasIndexView.cs" />
+    <Compile Include="Duckov\UI\FormulasRegisterView.cs" />
+    <Compile Include="Duckov\UI\GameplayUIManager.cs" />
+    <Compile Include="Duckov\UI\GenericButton.cs" />
+    <Compile Include="Duckov\UI\HealthBar.cs" />
+    <Compile Include="Duckov\UI\HealthBarManager.cs" />
+    <Compile Include="Duckov\UI\Inventories\PagesControl.cs" />
+    <Compile Include="Duckov\UI\Inventories\PagesControl_Entry.cs" />
+    <Compile Include="Duckov\UI\InventoryDisplay.cs" />
+    <Compile Include="Duckov\UI\InventoryEntry.cs" />
+    <Compile Include="Duckov\UI\InventoryEntryTradingPriceDisplay.cs" />
+    <Compile Include="Duckov\UI\InventoryView.cs" />
+    <Compile Include="Duckov\UI\ItemCustomizeSelectionView.cs" />
+    <Compile Include="Duckov\UI\ItemCustomizeView.cs" />
+    <Compile Include="Duckov\UI\ItemDecomposeView.cs" />
+    <Compile Include="Duckov\UI\ItemDetailsDisplay.cs" />
+    <Compile Include="Duckov\UI\ItemDetailsPanel.cs" />
+    <Compile Include="Duckov\UI\ItemDisplay.cs" />
+    <Compile Include="Duckov\UI\ItemEffectEntry.cs" />
+    <Compile Include="Duckov\UI\ItemHoveringUI.cs" />
+    <Compile Include="Duckov\UI\ItemModifierEntry.cs" />
+    <Compile Include="Duckov\UI\ItemOperationMenu.cs" />
+    <Compile Include="Duckov\UI\ItemPicker.cs" />
+    <Compile Include="Duckov\UI\ItemPickerEntry.cs" />
+    <Compile Include="Duckov\UI\ItemRepairView.cs" />
+    <Compile Include="Duckov\UI\ItemShortcutButton.cs" />
+    <Compile Include="Duckov\UI\ItemShortcutEditorEntry.cs" />
+    <Compile Include="Duckov\UI\ItemShortcutEditorPanel.cs" />
+    <Compile Include="Duckov\UI\ItemShortcutPanel.cs" />
+    <Compile Include="Duckov\UI\ItemSlotCollectionDisplay.cs" />
+    <Compile Include="Duckov\UI\ItemStatEntry.cs" />
+    <Compile Include="Duckov\UI\ItemUIUtilities.cs" />
+    <Compile Include="Duckov\UI\ItemVariableEntry.cs" />
+    <Compile Include="Duckov\UI\ITooltipsProvider.cs" />
+    <Compile Include="Duckov\UI\KontextMenu.cs" />
+    <Compile Include="Duckov\UI\KontextMenuDataEntry.cs" />
+    <Compile Include="Duckov\UI\KontextMenuEntry.cs" />
+    <Compile Include="Duckov\UI\LootView.cs" />
+    <Compile Include="Duckov\UI\MainMenu\ContinueButton.cs" />
+    <Compile Include="Duckov\UI\MainMenu\SavesButton.cs" />
+    <Compile Include="Duckov\UI\MainMenu\SaveSlotSelectionButton.cs" />
+    <Compile Include="Duckov\UI\MainMenu\SaveSlotSelectionMenu.cs" />
+    <Compile Include="Duckov\UI\ManagedUIElement.cs" />
+    <Compile Include="Duckov\UI\MapSelectionEntry.cs" />
+    <Compile Include="Duckov\UI\MapSelectionView.cs" />
+    <Compile Include="Duckov\UI\MoneyDisplay.cs" />
+    <Compile Include="Duckov\UI\NoteIndexView.cs" />
+    <Compile Include="Duckov\UI\NoteIndexView_Entry.cs" />
+    <Compile Include="Duckov\UI\NoteIndexView_Inspector.cs" />
+    <Compile Include="Duckov\UI\NotificationText.cs" />
+    <Compile Include="Duckov\UI\PerkDetails.cs" />
+    <Compile Include="Duckov\UI\PerkEntry.cs" />
+    <Compile Include="Duckov\UI\PerkLineEntry.cs" />
+    <Compile Include="Duckov\UI\PerkTreeView.cs" />
+    <Compile Include="Duckov\UI\PlayerStatsView.cs" />
+    <Compile Include="Duckov\UI\PlayerStats\MainCharacterStatValueDisplay.cs" />
+    <Compile Include="Duckov\UI\PunchReceiver.cs" />
+    <Compile Include="Duckov\UI\RectTransformChangeEventEmitter.cs" />
+    <Compile Include="Duckov\UI\RedDots\QuestsButtonRedDot.cs" />
+    <Compile Include="Duckov\UI\RequireItemEntry.cs" />
+    <Compile Include="Duckov\UI\SavesRestore\SavesBackupRestorePanel.cs" />
+    <Compile Include="Duckov\UI\SavesRestore\SavesBackupRestorePanelEntry.cs" />
+    <Compile Include="Duckov\UI\ScrollViewBorderFrame.cs" />
+    <Compile Include="Duckov\UI\ScrollViewMaxHeight.cs" />
+    <Compile Include="Duckov\UI\SleepView.cs" />
+    <Compile Include="Duckov\UI\SliderWithTextField.cs" />
+    <Compile Include="Duckov\UI\SlotDisplay.cs" />
+    <Compile Include="Duckov\UI\SlotDisplayOperationContext.cs" />
+    <Compile Include="Duckov\UI\SlotIndicator.cs" />
+    <Compile Include="Duckov\UI\StatInfoDatabase.cs" />
+    <Compile Include="Duckov\UI\StorageDock.cs" />
+    <Compile Include="Duckov\UI\StorageDockEntry.cs" />
+    <Compile Include="Duckov\UI\TagsDisplay.cs" />
+    <Compile Include="Duckov\UI\TagsDisplayEntry.cs" />
+    <Compile Include="Duckov\UI\Tooltips.cs" />
+    <Compile Include="Duckov\UI\TooltipsProvider.cs" />
+    <Compile Include="Duckov\UI\TradingUIUtilities.cs" />
+    <Compile Include="Duckov\UI\UIPrefabsReference.cs" />
+    <Compile Include="Duckov\UI\UsageUtilitiesDisplay.cs" />
+    <Compile Include="Duckov\UI\UsageUtilitiesDisplay_Entry.cs" />
+    <Compile Include="Duckov\UI\View.cs" />
+    <Compile Include="Duckov\UI\WeaponButton.cs" />
+    <Compile Include="Duckov\UI\WeightBarComplex.cs" />
+    <Compile Include="Duckov\Utilities\CommonVariables.cs" />
+    <Compile Include="Duckov\Utilities\FishSpawner.cs" />
+    <Compile Include="Duckov\Utilities\GameplayDataSettings.cs" />
+    <Compile Include="Duckov\Utilities\LootBoxLoader.cs" />
+    <Compile Include="Duckov\Utilities\LootSpawner.cs" />
+    <Compile Include="Duckov\Utilities\SetActiveByPlayerDistance.cs" />
+    <Compile Include="Duckov\VersionData.cs" />
+    <Compile Include="Duckov\Weathers\Precipitation.cs" />
+    <Compile Include="Duckov\Weathers\Storm.cs" />
+    <Compile Include="Duckov\Weathers\Weather.cs" />
+    <Compile Include="Duckov\Weathers\WeatherManager.cs" />
+    <Compile Include="Duckvo\Beacons\BeaconManager.cs" />
+    <Compile Include="DummyFish.cs" />
+    <Compile Include="DynamicItemDebugger.cs" />
+    <Compile Include="EdgeLightEntry.cs" />
+    <Compile Include="EdgeLightSettings.cs" />
+    <Compile Include="Egg.cs" />
+    <Compile Include="ElementFactor.cs" />
+    <Compile Include="ElementFactorFilter.cs" />
+    <Compile Include="ElementTypes.cs" />
+    <Compile Include="Ending.cs" />
+    <Compile Include="EndingControl.cs" />
+    <Compile Include="EnemyCreator.cs" />
+    <Compile Include="EnergyHUD.cs" />
+    <Compile Include="EvacuationCountdownUI.cs" />
+    <Compile Include="EvacuationCountdownUIProxy.cs" />
+    <Compile Include="EvacuationInfo.cs" />
+    <Compile Include="EventIfSteamChina.cs" />
+    <Compile Include="EventReports\BDSManager.cs" />
+    <Compile Include="ExitCreator.cs" />
+    <Compile Include="ExpDisplay.cs" />
+    <Compile Include="ExplosionFxTypes.cs" />
+    <Compile Include="ExplosionManager.cs" />
+    <Compile Include="FadeGroupButton.cs" />
+    <Compile Include="FillWaterAndFood.cs" />
+    <Compile Include="FishingPoint.cs" />
+    <Compile Include="FishingRod.cs" />
+    <Compile Include="Fishing\FishingHUD.cs" />
+    <Compile Include="Fishing\FishingPool.cs" />
+    <Compile Include="Fishing\FishingPoolEntry.cs" />
+    <Compile Include="Fishing\UI\BaitSelectPanel.cs" />
+    <Compile Include="Fishing\UI\BaitSelectPanelEntry.cs" />
+    <Compile Include="Fishing\UI\ConfirmPanel.cs" />
+    <Compile Include="Fishing\UI\FishingUI.cs" />
+    <Compile Include="Fishing\WeightModifications.cs" />
+    <Compile Include="FmodEventTester.cs" />
+    <Compile Include="FogOfWarManager.cs" />
+    <Compile Include="FollowCharacterHUD.cs" />
+    <Compile Include="ForceUnmaskable.cs" />
+    <Compile Include="FormulasDetailsDisplay.cs" />
+    <Compile Include="FormulasRegisterViewInvoker.cs" />
+    <Compile Include="FowSmoke.cs" />
+    <Compile Include="FrameRateSetting.cs" />
+    <Compile Include="FreeCameraController.cs" />
+    <Compile Include="FsrSetting.cs" />
+    <Compile Include="FullScreenOptions.cs" />
+    <Compile Include="FxAction.cs" />
+    <Compile Include="FXPool.cs" />
+    <Compile Include="FX\PopText.cs" />
+    <Compile Include="FX\PopTextEntity.cs" />
+    <Compile Include="GameCamera.cs" />
+    <Compile Include="GameClock.cs" />
+    <Compile Include="GameClockDisplay.cs" />
+    <Compile Include="GameManager.cs" />
+    <Compile Include="GamePrepareProcess.cs" />
+    <Compile Include="GamingConsoleView.cs" />
+    <Compile Include="GetCurrentPosition.cs" />
+    <Compile Include="GrassOptions.cs" />
+    <Compile Include="Grenade.cs" />
+    <Compile Include="HalfObsticle.cs" />
+    <Compile Include="HalfObsticleTrigger.cs" />
+    <Compile Include="HandheldAnimationType.cs" />
+    <Compile Include="HandheldSocketTypes.cs" />
+    <Compile Include="HandheldSprite.cs" />
+    <Compile Include="HBAOSettings.cs" />
+    <Compile Include="HeadCollider.cs" />
+    <Compile Include="HealAction.cs" />
+    <Compile Include="Health.cs" />
+    <Compile Include="HealthBar_DamageBar.cs" />
+    <Compile Include="HealthHUD.cs" />
+    <Compile Include="HealthSimpleBase.cs" />
+    <Compile Include="HideIfSickFriendly.cs" />
+    <Compile Include="HitMarker.cs" />
+    <Compile Include="HUDManager.cs" />
+    <Compile Include="HurtVisual.cs" />
+    <Compile Include="HurtVisualSettings.cs" />
+    <Compile Include="IAgentUsable.cs" />
+    <Compile Include="IInitializedQueryHandler.cs" />
+    <Compile Include="IItemDragSource.cs" />
+    <Compile Include="IItemMetaDataProvider.cs" />
+    <Compile Include="IMerchant.cs" />
+    <Compile Include="IMiniMapDataProvider.cs" />
+    <Compile Include="IMiniMapEntry.cs" />
+    <Compile Include="IndicatorHUD.cs" />
+    <Compile Include="INeedInspection.cs" />
+    <Compile Include="InputManager.cs" />
+    <Compile Include="InputRebinder.cs" />
+    <Compile Include="InputRebinderIndicator.cs" />
+    <Compile Include="InteractableBase.cs" />
+    <Compile Include="InteractableCarriable.cs" />
+    <Compile Include="InteractableLootbox.cs" />
+    <Compile Include="InteractablePickup.cs" />
+    <Compile Include="InteractCrafter.cs" />
+    <Compile Include="InteractHUD.cs" />
+    <Compile Include="InteractMarker.cs" />
+    <Compile Include="InteractSelectionHUD.cs" />
+    <Compile Include="Interact_CustomFace.cs" />
+    <Compile Include="InventoryExtensions.cs" />
+    <Compile Include="InventoryFilterDisplay.cs" />
+    <Compile Include="InventoryFilterDisplayEntry.cs" />
+    <Compile Include="InventoryFilterProvider.cs" />
+    <Compile Include="InvisibleTeleporter.cs" />
+    <Compile Include="IOnPointsChanged.cs" />
+    <Compile Include="ISingleSelectionMenu.cs" />
+    <Compile Include="ItemAgentHolder.cs" />
+    <Compile Include="ItemAgent_Gun.cs" />
+    <Compile Include="ItemAgent_MeleeWeapon.cs" />
+    <Compile Include="ItemAmountDisplay.cs" />
+    <Compile Include="ItemDraggingPointerDisplay.cs" />
+    <Compile Include="ItemExtensions.cs" />
+    <Compile Include="ItemMetaDisplay.cs" />
+    <Compile Include="ItemPickerDebug.cs" />
+    <Compile Include="ItemPropertiesDisplay.cs" />
+    <Compile Include="ItemRepair_RepairAllPanel.cs" />
+    <Compile Include="ItemSettingBase.cs" />
+    <Compile Include="ItemSetting_Accessory.cs" />
+    <Compile Include="ItemSetting_Bullet.cs" />
+    <Compile Include="ItemSetting_Formula.cs" />
+    <Compile Include="ItemSetting_GPU.cs" />
+    <Compile Include="ItemSetting_Gun.cs" />
+    <Compile Include="ItemSetting_MeleeWeapon.cs" />
+    <Compile Include="ItemSetting_NightVision.cs" />
+    <Compile Include="ItemSetting_Skill.cs" />
+    <Compile Include="ItemStarterkit.cs" />
+    <Compile Include="ItemStatsSystem\OnShootAttackTrigger.cs" />
+    <Compile Include="ItemStatsSystem\OnTakeDamageTrigger.cs" />
+    <Compile Include="ItemStatsSystem\TestitemGraphic.cs" />
+    <Compile Include="ItemTest.cs" />
+    <Compile Include="ItemUtilities.cs" />
+    <Compile Include="ItemWishlist.cs" />
+    <Compile Include="KunEvents.cs" />
+    <Compile Include="LabelAndValue.cs" />
+    <Compile Include="LanguageOptionsProvider.cs" />
+    <Compile Include="LevelConfig.cs" />
+    <Compile Include="LevelInitializingIndicator.cs" />
+    <Compile Include="LevelManager.cs" />
+    <Compile Include="LevelManagerProxy.cs" />
+    <Compile Include="LightCookieMove.cs" />
+    <Compile Include="LittleMoveHUD.cs" />
+    <Compile Include="LoadUnitySceneOnStart.cs" />
+    <Compile Include="LogOnEnableAndDisable.cs" />
+    <Compile Include="LongPressButton.cs" />
+    <Compile Include="LoopSoundWithObject.cs" />
+    <Compile Include="LootManager.cs" />
+    <Compile Include="MainCharacterFace.cs" />
+    <Compile Include="MainMenu.cs" />
+    <Compile Include="MainMenuCamera.cs" />
+    <Compile Include="MapImageToShader.cs" />
+    <Compile Include="MapMarkerPanelButton.cs" />
+    <Compile Include="MapMarkerSettingsPanel.cs" />
+    <Compile Include="MinimapButton.cs" />
+    <Compile Include="MiningMachineCardDisplay.cs" />
+    <Compile Include="MiningMachineVisual.cs" />
+    <Compile Include="ModifierAction.cs" />
+    <Compile Include="ModUploadPanel.cs" />
+    <Compile Include="MoveDirectionOptions.cs" />
+    <Compile Include="Movement.cs" />
+    <Compile Include="MoveRing.cs" />
+    <Compile Include="MoveVisual.cs" />
+    <Compile Include="MultiCirceExtrudeShape.cs" />
+    <Compile Include="MultiInteraction.cs" />
+    <Compile Include="MultiInteractionMenu.cs" />
+    <Compile Include="MultiInteractionMenuButton.cs" />
+    <Compile Include="MultipleBezierShape.cs" />
+    <Compile Include="NamedFormatTest.cs" />
+    <Compile Include="NightVisionVisual.cs" />
+    <Compile Include="NodeCanvas\DialogueTrees\LocalizedMultipleChoiceNode.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\AimToPlayer.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\Attack.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\CheckObsticle.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\Dash.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\FindMainCharacter.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\MoveToRandomPos.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\PickupSearchedItem.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\PopText.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\PostSound.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\ReleaseItemSkillIfHas.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\ReleaseSkill.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\RotateAim.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\SearchEnemyAround.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\SetAim.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\SetNoticedToTarget.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\SetRun.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\Shoot.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\SpawnAlertFx.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\StopMoving.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\TraceTarget.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\TryToReloadIfEmpty.cs" />
+    <Compile Include="NodeCanvas\Tasks\Actions\UseDrug.cs" />
+    <Compile Include="NodeCanvas\Tasks\Conditions\CheckCanReleaseSkill.cs" />
+    <Compile Include="NodeCanvas\Tasks\Conditions\CheckHeathLessThan.cs" />
+    <Compile Include="NodeCanvas\Tasks\Conditions\CheckHoldGun.cs" />
+    <Compile Include="NodeCanvas\Tasks\Conditions\CheckHurt.cs" />
+    <Compile Include="NodeCanvas\Tasks\Conditions\CheckNoticed.cs" />
+    <Compile Include="NodeCanvas\Tasks\Conditions\CheckReloading.cs" />
+    <Compile Include="NodeCanvas\Tasks\Conditions\CheckTargetDistance.cs" />
+    <Compile Include="NodeCanvas\Tasks\Conditions\HasObsticleToTarget.cs" />
+    <Compile Include="NotHurtForSeconds.cs" />
+    <Compile Include="NotificationProxy.cs" />
+    <Compile Include="OcclusionFadeChecker.cs" />
+    <Compile Include="OcclusionFadeManager.cs" />
+    <Compile Include="OcclusionFadeObject.cs" />
+    <Compile Include="OcclusionFadeTrigger.cs" />
+    <Compile Include="OcclusionFadeTypes.cs" />
+    <Compile Include="OnDisableLog.cs" />
+    <Compile Include="OnPointerClick.cs" />
+    <Compile Include="OnTriggerEnterEvent.cs" />
+    <Compile Include="OpenSaveFolder.cs" />
+    <Compile Include="OptionsPanel_TabButton.cs" />
+    <Compile Include="OptionsProviderBase.cs" />
+    <Compile Include="OverrideDeathSceneRouting.cs" />
+    <Compile Include="PackedMapData.cs" />
+    <Compile Include="PaperBox.cs" />
+    <Compile Include="PauseMenu.cs" />
+    <Compile Include="PerkTreeManager.cs" />
+    <Compile Include="PetAI.cs" />
+    <Compile Include="PetHouse.cs" />
+    <Compile Include="PetProxy.cs" />
+    <Compile Include="PipeCollider2D.cs" />
+    <Compile Include="PipeDecoration.cs" />
+    <Compile Include="PipeHelperFunctions.cs" />
+    <Compile Include="PipeRenderer.cs" />
+    <Compile Include="PlayableDirectorEvents.cs" />
+    <Compile Include="PlayerHurtVisual.cs" />
+    <Compile Include="PlayerPositionBackupManager.cs" />
+    <Compile Include="PlayerPositionBackupProxy.cs" />
+    <Compile Include="PlayerStorage.cs" />
+    <Compile Include="PlayerStorageBuffer.cs" />
+    <Compile Include="PlayEventOnAwake.cs" />
+    <Compile Include="PlayHurtEventProxy.cs" />
+    <Compile Include="PointerDownUpEvents.cs" />
+    <Compile Include="Points.cs" />
+    <Compile Include="PostAudioEventOnEnter.cs" />
+    <Compile Include="PrefabLineGenrator.cs" />
+    <Compile Include="PreUnlockPerkTree.cs" />
+    <Compile Include="ProceduralImageHashProvider.cs" />
+    <Compile Include="Projectile.cs" />
+    <Compile Include="ProjectileContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestRequiredItem.cs" />
+    <Compile Include="RaidUtilities.cs" />
+    <Compile Include="RandomActiveSelector.cs" />
+    <Compile Include="RandomCharacterSpawner.cs" />
+    <Compile Include="RandomItemGenerateDescription.cs" />
+    <Compile Include="RectStructRefTest.cs" />
+    <Compile Include="RectTransformExtensions.cs" />
+    <Compile Include="ReloadHUD.cs" />
+    <Compile Include="RemoveBuffAction.cs" />
+    <Compile Include="RequireBeaconUnlocked.cs" />
+    <Compile Include="RequireEnemyKilled.cs" />
+    <Compile Include="RequireInLevelDataBool.cs" />
+    <Compile Include="RequireSaveDataBool.cs" />
+    <Compile Include="RequireWeathers.cs" />
+    <Compile Include="ReselectButton.cs" />
+    <Compile Include="ResModes.cs" />
+    <Compile Include="ResolutionOptions.cs" />
+    <Compile Include="ResolutionSetter.cs" />
+    <Compile Include="RestoreFailureDetectedIndicator.cs" />
+    <Compile Include="RoundCornerRectExtrudeShape.cs" />
+    <Compile Include="RoundCornerSquareExtrudeShape.cs" />
+    <Compile Include="RuleEntry_Bool.cs" />
+    <Compile Include="RuleIndexDisplay.cs" />
+    <Compile Include="RunInputOptions.cs" />
+    <Compile Include="SaveDataBoolProxy.cs" />
+    <Compile Include="SavedInventory.cs" />
+    <Compile Include="SavesBackupRestoreInvoker.cs" />
+    <Compile Include="SavesCounter.cs" />
+    <Compile Include="Saves\ISaveDataProvider.cs" />
+    <Compile Include="Saves\ItemSavesUtilities.cs" />
+    <Compile Include="Saves\SavesSystem.cs" />
+    <Compile Include="ScalableMesh.cs" />
+    <Compile Include="SceneInfoCollection.cs" />
+    <Compile Include="SceneInfoEntry.cs" />
+    <Compile Include="SceneLoader.cs" />
+    <Compile Include="SceneLoaderProxy.cs" />
+    <Compile Include="SceneLoadingContext.cs" />
+    <Compile Include="SceneLoadingEventsReceiver.cs" />
+    <Compile Include="ScrollViewEventReceiver.cs" />
+    <Compile Include="ScrollWheelBehaviour.cs" />
+    <Compile Include="ScrollWheelOptionsProvider.cs" />
+    <Compile Include="SetActiveByChance.cs" />
+    <Compile Include="SetActiveByCondition.cs" />
+    <Compile Include="SetActiveByEnding.cs" />
+    <Compile Include="SetActiveByInputDevice.cs" />
+    <Compile Include="SetActiveOnAwake.cs" />
+    <Compile Include="SetDoorOpenIfSaveData.cs" />
+    <Compile Include="SetEndingMissleParameter.cs" />
+    <Compile Include="SetInLevelDataBoolProxy.cs" />
+    <Compile Include="SetTimeOnEnterBaseFirstTime.cs" />
+    <Compile Include="SfxOnClick.cs" />
+    <Compile Include="ShadowSetting.cs" />
+    <Compile Include="ShapeProvider.cs" />
+    <Compile Include="ShapesSkillLine.cs" />
+    <Compile Include="ShootRangeRing.cs" />
+    <Compile Include="ShowLocationInMap.cs" />
+    <Compile Include="SimpleTeleporter.cs" />
+    <Compile Include="SimpleTeleporterSpawner.cs" />
+    <Compile Include="SingleCrosshair.cs" />
+    <Compile Include="SkillBase.cs" />
+    <Compile Include="SkillContext.cs" />
+    <Compile Include="SkillHUD.cs" />
+    <Compile Include="SkillHud3D.cs" />
+    <Compile Include="SkillProjectileLineHUD.cs" />
+    <Compile Include="SkillRangeHUD.cs" />
+    <Compile Include="SkillReleaseContext.cs" />
+    <Compile Include="SkillTypes.cs" />
+    <Compile Include="Skill_Grenade.cs" />
+    <Compile Include="SodaCraft\CameraArmControl.cs" />
+    <Compile Include="SodaCraft\EdgeLight.cs" />
+    <Compile Include="SodaCraft\LightControl.cs" />
+    <Compile Include="SodaCraft\SunFogTD.cs" />
+    <Compile Include="SodaCraft\TimeOfDayPost.cs" />
+    <Compile Include="SodaImguiTest.cs" />
+    <Compile Include="SodaPointLight.cs" />
+    <Compile Include="Soda\DebugView.cs" />
+    <Compile Include="Soda_Joysticks.cs" />
+    <Compile Include="SoftShadowOptions.cs" />
+    <Compile Include="SoulCollector.cs" />
+    <Compile Include="SoulCube.cs" />
+    <Compile Include="SoundTypes.cs" />
+    <Compile Include="SpaceShipInstaller.cs" />
+    <Compile Include="SpawnPaperBoxAction.cs" />
+    <Compile Include="SplitDialogue.cs" />
+    <Compile Include="StaminaHUD.cs" />
+    <Compile Include="SteamLogoImage.cs" />
+    <Compile Include="SteamManager.cs" />
+    <Compile Include="SteamStatsAPITest.cs" />
+    <Compile Include="StockShopDatabase.cs" />
+    <Compile Include="StorageDockCountTMP.cs" />
+    <Compile Include="StormWeather.cs" />
+    <Compile Include="StrJson.cs" />
+    <Compile Include="SunFogEntry.cs" />
+    <Compile Include="SunFogSettings.cs" />
+    <Compile Include="SyncDebugEdgeLight.cs" />
+    <Compile Include="TagUtilities.cs" />
+    <Compile Include="TaskEvent.cs" />
+    <Compile Include="TaskEventEmitter.cs" />
+    <Compile Include="TaskSkipperUI.cs" />
+    <Compile Include="Team.cs" />
+    <Compile Include="Teams.cs" />
+    <Compile Include="TeleportBeacon.cs" />
+    <Compile Include="Temp.cs" />
+    <Compile Include="TestArmRenderer.cs" />
+    <Compile Include="TextureModes.cs" />
+    <Compile Include="TimeOfDayAlert.cs" />
+    <Compile Include="TimeOfDayAlertTriggerProxy.cs" />
+    <Compile Include="TimeOfDayConfig.cs" />
+    <Compile Include="TimeOfDayController.cs" />
+    <Compile Include="TimeOfDayDisplay.cs" />
+    <Compile Include="TimeOfDayEntry.cs" />
+    <Compile Include="TimeOfDayPhase.cs" />
+    <Compile Include="TimeOfDayVolumeControl.cs" />
+    <Compile Include="TimePhaseTags.cs" />
+    <Compile Include="TimeScaleManager.cs" />
+    <Compile Include="TimeSpanAttribute.cs" />
+    <Compile Include="Title.cs" />
+    <Compile Include="ToggleHUD.cs" />
+    <Compile Include="UIButtonRevertBinding.cs" />
+    <Compile Include="UIInputEventData.cs" />
+    <Compile Include="UIInputManager.cs" />
+    <Compile Include="UIKeybindingEntry.cs" />
+    <Compile Include="UIPanel.cs" />
+    <Compile Include="UIPanelButton_OpenChildPanel.cs" />
+    <Compile Include="UIShadowOptions.cs" />
+    <Compile Include="UIShadowSetter.cs" />
+    <Compile Include="UIToolkitTest.cs" />
+    <Compile Include="UI\Menu.cs" />
+    <Compile Include="UI\MenuItem.cs" />
+    <Compile Include="UI_Bus_Slider.cs" />
+    <Compile Include="UnityEngine\Splines\SplineFlatExtrude.cs" />
+    <Compile Include="UnityEngine\Splines\SplineProfileExtrude.cs" />
+    <Compile Include="UnityEngine\Splines\SplineSidewalkExtrude.cs" />
+    <Compile Include="UnitySourceGeneratedAssemblyMonoScriptTypes_v1.cs" />
+    <Compile Include="UnityTemplateProjects\SimpleCameraController.cs" />
+    <Compile Include="UnlockEndowmentWhenQuestComplete.cs" />
+    <Compile Include="UnlockStockShopItem.cs" />
+    <Compile Include="UseToCreateItem.cs" />
+    <Compile Include="UVCylinder.cs" />
+    <Compile Include="ViewsProxy.cs" />
+    <Compile Include="ViewTabDisplayEntry.cs" />
+    <Compile Include="ViewTabs.cs" />
+    <Compile Include="VolumesControl.cs" />
+    <Compile Include="vSyncSetting.cs" />
+    <Compile Include="WaterHUD.cs" />
+    <Compile Include="WeatherFxControl.cs" />
+    <Compile Include="WeightBarHUD.cs" />
+    <Compile Include="WishListProxy.cs" />
+    <Compile Include="Workbench.cs" />
+    <Compile Include="Zone.cs" />
+    <Compile Include="ZoneDamage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ItemStatsSystem\ItemStatsSystem.csproj">
+      <Project>{641bbc0f-4993-4bf9-ab36-63a619734583}</Project>
+      <Name>ItemStatsSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mscorlib\mscorlib.csproj">
+      <Project>{641bbc0f-4993-4bf9-ab36-63a619734584}</Project>
+      <Name>mscorlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamSoda.Duckov.Utilities\TeamSoda.Duckov.Utilities.csproj">
+      <Project>{641bbc0f-4993-4bf9-ab36-63a619734586}</Project>
+      <Name>TeamSoda.Duckov.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

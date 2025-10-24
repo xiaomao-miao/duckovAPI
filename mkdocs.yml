@@ -1,0 +1,99 @@
+site_name: 逃离鸭科夫 Mod API 文档
+site_description: 《逃离鸭科夫》游戏 Mod 开发完整 API 参考文档
+site_author: Duckov Modding Community
+site_url: https://duckov-modding.github.io/docs
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - 首页: index.md
+  - 快速开始: getting-started.md
+  - 核心模块:
+    - TeamSoda.Duckov.Core: modules/core.md
+    - ItemStatsSystem: modules/itemstats.md
+    - TeamSoda.Duckov.Utilities: modules/utilities.md
+    - TeamSoda.MiniLocalizor: modules/localization.md
+  - 游戏系统:
+    - 角色系统: systems/character.md
+    - 物品系统: systems/items.md
+    - 制作系统: systems/crafting.md
+    - 战斗系统: systems/combat.md
+    - 经济系统: systems/economy.md
+    - 任务系统: systems/quests.md
+    - 成就系统: systems/achievements.md
+    - Buff系统: systems/buffs.md
+    - 难度系统: systems/difficulty.md
+    - 存档系统: systems/save.md
+    - 音频系统: systems/audio.md
+    - UI系统: systems/ui.md
+    - 提示系统: systems/tips.md
+    - 尸体系统: systems/death.md
+    - 社交系统: systems/social.md
+  - 开发指南:
+    - Mod开发基础: guides/basics.md
+    - 事件系统: guides/events.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.magiclink
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

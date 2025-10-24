@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{641BBC0F-4993-4BF9-AB36-63A619734583}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ItemStatsSystem</RootNamespace>
+    <AssemblyName>ItemStatsSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Sirenix.OdinInspector.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\Sirenix.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="SodaLocalization">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\SodaLocalization.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UniTask.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\software\steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BoolFilter.cs" />
+    <Compile Include="Data\InventoryData.cs" />
+    <Compile Include="Data\ItemTreeData.cs" />
+    <Compile Include="DisplayQuality.cs" />
+    <Compile Include="Duckov\Effects\OnItemTreeChangedTrigger.cs" />
+    <Compile Include="Effect.cs" />
+    <Compile Include="EffectAction.cs" />
+    <Compile Include="EffectComponent.cs" />
+    <Compile Include="EffectFilter.cs" />
+    <Compile Include="EffectTrigger.cs" />
+    <Compile Include="EffectTriggerEventContext.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemAgent.cs" />
+    <Compile Include="ItemAgentUtilities.cs" />
+    <Compile Include="ItemAssetsCollection.cs" />
+    <Compile Include="ItemComponent.cs" />
+    <Compile Include="ItemFilter.cs" />
+    <Compile Include="ItemGraphicInfo.cs" />
+    <Compile Include="ItemInCharacterSlotFilter.cs" />
+    <Compile Include="ItemMetaData.cs" />
+    <Compile Include="Items\Slot.cs" />
+    <Compile Include="Items\SlotCollection.cs" />
+    <Compile Include="ItemTreeExtensions.cs" />
+    <Compile Include="ItemTypeIDAttribute.cs" />
+    <Compile Include="ItemUsedTrigger.cs" />
+    <Compile Include="LogItemNameAction.cs" />
+    <Compile Include="LogWhenUsed.cs" />
+    <Compile Include="MenuPathAttribute.cs" />
+    <Compile Include="ModifierDescription.cs" />
+    <Compile Include="ModifierDescriptionCollection.cs" />
+    <Compile Include="ModifierTarget.cs" />
+    <Compile Include="Polarity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stat.cs" />
+    <Compile Include="StatCollection.cs" />
+    <Compile Include="Stats\Modifier.cs" />
+    <Compile Include="Stats\ModifierType.cs" />
+    <Compile Include="TickTrigger.cs" />
+    <Compile Include="TriggerOnSetItem.cs" />
+    <Compile Include="UnitySourceGeneratedAssemblyMonoScriptTypes_v1.cs" />
+    <Compile Include="UpdateTrigger.cs" />
+    <Compile Include="UsageBehavior.cs" />
+    <Compile Include="UsageUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\mscorlib\mscorlib.csproj">
+      <Project>{641bbc0f-4993-4bf9-ab36-63a619734584}</Project>
+      <Name>mscorlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamSoda.Duckov.Utilities\TeamSoda.Duckov.Utilities.csproj">
+      <Project>{641bbc0f-4993-4bf9-ab36-63a619734586}</Project>
+      <Name>TeamSoda.Duckov.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
