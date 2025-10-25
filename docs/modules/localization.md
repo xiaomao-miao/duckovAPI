@@ -1,270 +1,56 @@
-# TeamSoda.MiniLocalizor - 本地化模块
+# TeamSoda.MiniLocalizor 模块
 
-## 概述
-TeamSoda.MiniLocalizor 是《逃离鸭科夫》游戏的本地化模块，提供了多语言支持和本地化文本管理功能。
+> 对应程序集：`TeamSoda.MiniLocalizor.dll`
 
-## 核心类
+MiniLocalizor 提供 CSV 驱动的文本本地化能力。本节罗列反编译程序集内的所有公共类型、属性与重要方法，方便在编写 Mod 文档时快速对照。
 
-### CSVFileLocalizor
-CSV文件本地化器，从CSV文件读取和管理本地化文本。
+## 核心类型
 
-#### 属性
-- `Path` - 本地化文件路径
-- `Language` - 当前语言
+### `CSVFileLocalizor`
+- 实现 `ILocalizationProvider`，负责加载、查询 CSV 文本。
+- **构造函数**：
+  - `CSVFileLocalizor(string path)` – 直接指定 CSV 路径，自动解析文件名判断 `SystemLanguage`。
+  - `CSVFileLocalizor(SystemLanguage language)` – 根据语言拼接 `StreamingAssets/Localization/<Lang>.csv`，若不存在会创建空文件。
+- **属性**：
+  - `Path` – 当前 CSV 文件路径。
+  - `Language` – 解析得到的语言枚举，解析失败时为 `SystemLanguage.Unknown`。
+- **方法**：
+  - `BuildDictionary()` – 清空并重新读取 CSV，依赖 `MiniExcelLibs` 将每行转换为 `DataEntry`，并将键写入内部 `Dictionary<string, DataEntry>`。读取异常时会输出日志并提示关闭外部编辑器。
+  - `Get(string key)` – 返回指定键的本地化字符串，自动对 `\n` 等转义字符执行 `Regex.Unescape`。
+  - `GetEntry(string key)` – 返回 `DataEntry`，包含版本号、工作表名等元数据。
+  - `HasKey(string key)` – 判断是否存在对应文本。
+  - （内部）`ConvertFromEscapes(string origin)` / `ConvertToEscapes(string origin)` – 提供正则转义工具，`Get` 会调用前者以获取原始换行等字符。
 
-#### 构造函数
-- `CSVFileLocalizor(string path)` - 使用指定路径创建本地化器
-- `CSVFileLocalizor(SystemLanguage language)` - 使用系统语言创建本地化器
+### `ILocalizationProvider`
+- 简单接口，仅定义 `string Get(string key)`。
+- 任何自定义本地化方案只需实现该接口，即可与 `CSVFileLocalizor` 互换。
 
-#### 方法
-- `BuildDictionary()` - 构建本地化字典
-- `Get(string key)` - 获取本地化文本
-- `GetEntry(string key)` - 获取本地化条目
-- `HasKey(string key)` - 检查是否存在指定键
+### `MiniLocalizor.DataEntry`
+- 标准化的 CSV 行数据。
+- **自动属性**：`key`、`value`、`version`、`sheet`。
+- **方法**：`IsNewerThan(string version)` – 比较两条版本号，支持以 `#` 前缀标记开发版本。
 
-#### 静态方法
-- `ConvertFromEscapes(string origin)` - 从转义字符转换
-- `ConvertToEscapes(string origin)` - 转换为转义字符
+### 自动生成的辅助类
+- `UnitySourceGeneratedAssemblyMonoScriptTypes_v1`：Unity 生成的脚本注册表，仅用于编辑器反射。
+- `Properties.AssemblyInfo`：程序集属性声明（版本、GUID 等），对运行时代码无直接影响。
 
-### DataEntry
-本地化数据条目，存储本地化文本的键值对。
+## 使用建议
 
-#### 属性
-- `key` - 本地化键
-- `value` - 本地化值
-- `version` - 版本信息
-- `sheet` - 工作表名称
+- 当 CSV 被外部工具占用时，`BuildDictionary()` 会捕获异常并打印堆栈；确保在编辑完成后关闭 Excel 等软件再重新构建字典。
+- 若需要写入 CSV，请手动调用 `ConvertToEscapes`（通过 `CSVFileLocalizor` 的私有方法逻辑参考），以保证换行符等特殊字符在文件中正确转义。
+- 可以将 `CSVFileLocalizor` 与游戏现有的 `LocalizationManager`、`ILocalizationProvider` 实现互换，实现 Mod 专属语言包。
 
-#### 方法
-- `IsNewerThan(string version)` - 检查版本是否更新
+## 示例
 
-### ILocalizationProvider
-本地化提供者接口，定义本地化功能的基本接口。
-
-#### 方法
-- `Get(string key)` - 获取本地化文本
-
-## 使用示例
-
-### 创建本地化器
 ```csharp
-// 使用文件路径创建
-CSVFileLocalizor localizor = new CSVFileLocalizor("Assets/Localization/Chinese.csv");
+// 加载中文文本
+var provider = new CSVFileLocalizor(SystemLanguage.Chinese);
+string title = provider.Get("UI_Title");
 
-// 使用系统语言创建
-CSVFileLocalizor localizor = new CSVFileLocalizor(SystemLanguage.Chinese);
+// 动态监听文件更新
+FileSystemWatcher watcher = new(Path.GetDirectoryName(provider.Path));
+watcher.Changed += (_, __) => provider.BuildDictionary();
+watcher.EnableRaisingEvents = true;
 ```
 
-### 获取本地化文本
-```csharp
-CSVFileLocalizor localizor = new CSVFileLocalizor(SystemLanguage.English);
-
-// 获取本地化文本
-string text = localizor.Get("PlayerName");
-if (text != null)
-{
-    Debug.Log($"本地化文本: {text}");
-}
-else
-{
-    Debug.LogWarning("未找到本地化文本");
-}
-```
-
-### 检查本地化键是否存在
-```csharp
-CSVFileLocalizor localizor = new CSVFileLocalizor(SystemLanguage.Chinese);
-
-if (localizor.HasKey("PlayerName"))
-{
-    string text = localizor.Get("PlayerName");
-    Debug.Log($"玩家名称: {text}");
-}
-else
-{
-    Debug.LogWarning("本地化键不存在");
-}
-```
-
-### 获取本地化条目
-```csharp
-CSVFileLocalizor localizor = new CSVFileLocalizor(SystemLanguage.English);
-
-DataEntry entry = localizor.GetEntry("PlayerName");
-if (entry != null)
-{
-    Debug.Log($"键: {entry.key}");
-    Debug.Log($"值: {entry.value}");
-    Debug.Log($"版本: {entry.version}");
-    Debug.Log($"工作表: {entry.sheet}");
-}
-```
-
-### 版本比较
-```csharp
-DataEntry entry = localizor.GetEntry("PlayerName");
-if (entry != null)
-{
-    if (entry.IsNewerThan("1.0"))
-    {
-        Debug.Log("本地化条目版本更新");
-    }
-    else
-    {
-        Debug.Log("本地化条目版本较旧");
-    }
-}
-```
-
-### 重新构建本地化字典
-```csharp
-CSVFileLocalizor localizor = new CSVFileLocalizor(SystemLanguage.Chinese);
-
-// 重新构建字典（当文件更新时）
-localizor.BuildDictionary();
-
-// 获取更新后的文本
-string text = localizor.Get("UpdatedText");
-```
-
-### 处理转义字符
-```csharp
-// 本地化文本中的转义字符会被自动处理
-string text = localizor.Get("TextWithNewLine");
-// 如果CSV中存储的是 "Hello\\nWorld"，会转换为 "Hello\nWorld"
-
-Debug.Log(text); // 输出: Hello
-                 //       World
-```
-
-### 使用接口
-```csharp
-public class LocalizationManager
-{
-    private ILocalizationProvider provider;
-    
-    public LocalizationManager(ILocalizationProvider provider)
-    {
-        this.provider = provider;
-    }
-    
-    public string GetLocalizedText(string key)
-    {
-        return provider.Get(key);
-    }
-}
-
-// 使用
-CSVFileLocalizor localizor = new CSVFileLocalizor(SystemLanguage.Chinese);
-LocalizationManager manager = new LocalizationManager(localizor);
-string text = manager.GetLocalizedText("PlayerName");
-```
-
-### 多语言支持
-```csharp
-public class MultiLanguageManager
-{
-    private Dictionary<SystemLanguage, CSVFileLocalizor> localizors;
-    
-    public MultiLanguageManager()
-    {
-        localizors = new Dictionary<SystemLanguage, CSVFileLocalizor>();
-        
-        // 初始化多种语言
-        localizors[SystemLanguage.English] = new CSVFileLocalizor(SystemLanguage.English);
-        localizors[SystemLanguage.Chinese] = new CSVFileLocalizor(SystemLanguage.Chinese);
-        localizors[SystemLanguage.Japanese] = new CSVFileLocalizor(SystemLanguage.Japanese);
-    }
-    
-    public string GetText(string key, SystemLanguage language)
-    {
-        if (localizors.TryGetValue(language, out CSVFileLocalizor localizor))
-        {
-            return localizor.Get(key);
-        }
-        return null;
-    }
-    
-    public void SwitchLanguage(SystemLanguage language)
-    {
-        if (localizors.ContainsKey(language))
-        {
-            // 切换语言逻辑
-            Debug.Log($"切换到语言: {language}");
-        }
-    }
-}
-```
-
-### 本地化文本缓存
-```csharp
-public class LocalizationCache
-{
-    private Dictionary<string, string> cache;
-    private CSVFileLocalizor localizor;
-    
-    public LocalizationCache(CSVFileLocalizor localizor)
-    {
-        this.localizor = localizor;
-        this.cache = new Dictionary<string, string>();
-    }
-    
-    public string GetCachedText(string key)
-    {
-        if (cache.TryGetValue(key, out string cachedText))
-        {
-            return cachedText;
-        }
-        
-        string text = localizor.Get(key);
-        if (text != null)
-        {
-            cache[key] = text;
-        }
-        return text;
-    }
-    
-    public void ClearCache()
-    {
-        cache.Clear();
-    }
-}
-```
-
-### 本地化文本验证
-```csharp
-public class LocalizationValidator
-{
-    public bool ValidateLocalization(CSVFileLocalizor localizor, string[] requiredKeys)
-    {
-        foreach (string key in requiredKeys)
-        {
-            if (!localizor.HasKey(key))
-            {
-                Debug.LogError($"缺少本地化键: {key}");
-                return false;
-            }
-            
-            string text = localizor.Get(key);
-            if (string.IsNullOrEmpty(text))
-            {
-                Debug.LogWarning($"本地化文本为空: {key}");
-            }
-        }
-        return true;
-    }
-}
-```
-
-## 注意事项
-
-1. 本地化文件必须放在 `StreamingAssets/Localization/` 目录下
-2. 文件名必须与 `SystemLanguage` 枚举值对应
-3. CSV文件格式必须正确，包含键值对
-4. 本地化文本中的转义字符会被自动处理
-5. 版本比较支持数字版本和带#前缀的特殊版本
-6. 本地化器在创建时会自动构建字典，无需手动调用
-7. 如果本地化文件不存在，会创建空文件
-8. 使用哈希值访问比字符串键更快
-9. 本地化文本会缓存，提高性能
-10. 支持多种语言切换，但需要重新构建字典
+借助以上归档，MiniLocalizor 模块的所有公共 API 均已覆盖，可直接用于撰写面向 Mod 的本地化文档。
