@@ -95,6 +95,90 @@ TeamSoda.Duckov.Utilities 是《逃离鸭科夫》游戏的工具模块，提供
 - `Find(Predicate<T> predicate)` - 查找对象
 - `ReleaseAll(Predicate<T> predicate)` - 释放符合条件的对象
 
+### IPoolable
+对象池条目接口，在进入或离开池时获得通知。
+
+#### 方法
+- `NotifyPooled()` - 当对象被回收到池时触发，适合重置状态。
+- `NotifyReleased()` - 当对象从池中取出时触发，可进行激活初始化。
+
+### UpdatableInvoker 与 IUpdatable
+帧更新调度器，将实现 `IUpdatable` 的对象集中驱动。
+
+#### UpdatableInvoker
+- `Instance` *(static)* - 单例访问器，必要时会自动创建隐藏对象。
+- `Register(IUpdatable updatable)` - 注册等待逐帧执行的逻辑。
+- `Unregister(IUpdatable updatable)` - 取消注册，避免继续调用。
+- 内部 `Update()` 时会调用所有已注册对象的 `OnUpdate()`。
+
+#### IUpdatable
+- `OnUpdate()` - 逐帧更新回调接口。
+
+### RandomUtilities
+集合随机工具扩展，封装常用随机化逻辑。
+
+#### 常用方法
+- `RandomizeOrder<T>(this List<T> list)` - 原地打乱列表顺序。
+- `GetRandom<T>(this IList<T> list)` *(含 `System.Random` 重载)* - 获取随机元素。
+- `GetRandomSubSet<T>(this IList<T> list, int amount)` - 获取随机子集。
+- `GetRandom<T>(this T[] array)` - 从数组中随机返回一个元素。
+- `GetRandomWeighted<T>(this IList<T> list, Func<T, float> weightFunction, float lowPercent = 0f)` - 按权重随机。
+
+### RandomContainer<T>
+可序列化的权重随机容器。
+
+#### 属性
+- `Count` - 当前条目数量。
+
+#### 方法
+- `AddEntry(T value, float weight)` - 添加带权重的候选。
+- `GetRandom(float lowPercent = 0f)` - 按权重随机返回结果。
+- `GetRandom(System.Random overrideRandom, float lowPercent = 0f)` - 使用指定随机源。
+- `GetRandom(System.Random overrideRandom, Func<T, bool> predicator, float lowPercent = 0f)` - 在筛选条件后再随机。
+- `GetRandomMultiple(int count, bool repeatable = true)` - 获取多个随机结果，可设置是否允许重复。
+- `RefreshPercent()` - 重新计算每个条目的百分比说明（实现 `IPercentRefreshable`）。
+- `FromString(string str)` *(static)* - 解析形如 `Value:Weight` 的配置字符串构建容器。
+
+### Tag 与 TagCollection
+用于在物品或角色上应用标签并进行筛选。
+
+#### Tag
+- `Show` / `ShowDescription` - 控制是否在 UI 展示名称与描述。
+- `Priority` - 标签排序优先级。
+- `DisplayName` / `Description` - 本地化后的显示文本。
+- `Hash` - 标签哈希值。
+- `Color` - 标签显示颜色。
+- `Match(Tag tag, string name)` *(static)* - 比较名称是否对应标签。
+
+#### TagCollection
+- `Count` / `IsReadOnly` - 集合信息。
+- `Add(Tag tag)` / `Remove(Tag tag)` / `Clear()` - 集合操作。
+- `Contains(Tag tag)` / `Contains(string tagName)` - 检查标签是否存在。
+- `Check(ICollection<Tag> requireTags, ICollection<Tag> excludeTags)` - 依赖/排除检查，用于条件判断。
+- `Get(int index)` - 通过索引获取标签。
+
+### StringList 与 StringLists
+文本 ScriptableObject 集合，统一维护常量字符串。
+
+#### StringList
+- `Strings` - 只读字符串列表，可 `foreach` 遍历。
+
+#### StringLists
+- `StatKeys` / `SlotNames` / `ItemAgentKeys` *(static)* - 默认资源中预设的字符串集合。
+- 通过 `Resources.Load("DefaultStringLists")` 延迟加载。
+
+### DuckovUtilitiesSettings
+模块级配置 ScriptableObject。
+
+#### 静态属性
+- `Colors` - 返回 `ColorsData`（包含 `EffectTrigger`、`EffectFilter`、`EffectAction` 三种颜色配置）。
+
+### TrasnformExtensions
+Transform 辅助扩展。
+
+#### 方法
+- `DestroyAllChildren(this Transform transform)` - 清空并销毁所有子对象（编辑器下使用 `DestroyImmediate`）。
+
 ## 重要枚举
 
 ### CustomDataType
